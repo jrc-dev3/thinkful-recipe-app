@@ -22,17 +22,28 @@ function RecipeCreate({ addRecipe }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const entry = {
-      name,
-      cuisine,
-      photo,
-      preparation,
-      ingredients,
-    };
+    const formValid = () => {
+      return name && cuisine && photo && ingredients && preparation
+    }
 
+    if(formValid()){
 
-    addRecipe(entry);
-    setFormData({...initialState})
+      const entry = {
+        name,
+        cuisine,
+        photo,
+        preparation,
+        ingredients,
+      };
+
+      setFormData({...initialState})
+      addRecipe(entry);
+
+    }else{
+      console.log('here')
+      alert('Please fill in all entries.')
+    }
+
 
   };
 
@@ -47,6 +58,7 @@ function RecipeCreate({ addRecipe }) {
                 type="text"
                 onChange={handleChange}
                 placeholder="name"
+                value={name}
               />
             </td>
             <td>
@@ -55,6 +67,7 @@ function RecipeCreate({ addRecipe }) {
                 type="text"
                 onChange={handleChange}
                 placeholder="cuisine"
+                value={cuisine}
               />
             </td>
             <td>
@@ -63,6 +76,7 @@ function RecipeCreate({ addRecipe }) {
                 type="text"
                 onChange={handleChange}
                 placeholder="URL"
+                value={photo}
               />
             </td>
             <td>
@@ -70,6 +84,7 @@ function RecipeCreate({ addRecipe }) {
                 name="preparation"
                 onChange={handleChange}
                 placeholder="preparation"
+                value={preparation}
               />
             </td>
             <td>
@@ -77,6 +92,7 @@ function RecipeCreate({ addRecipe }) {
                 name="ingredients"
                 onChange={handleChange}
                 placeholder="ingredients"
+                value={ingredients}
               />
             </td>
             <td>
