@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-// TODO: When the form is submitted, a new recipe should be created, and the form contents cleared.
-// TODO: Add the required input and textarea form elements.
-// TODO: Add the required submit and change handlers
 
 function RecipeCreate({ addRecipe }) {
   const initialState = {
@@ -29,8 +26,8 @@ function RecipeCreate({ addRecipe }) {
       name,
       cuisine,
       photo,
-      ingredients,
       preparation,
+      ingredients,
     };
 
 
@@ -70,16 +67,16 @@ function RecipeCreate({ addRecipe }) {
             </td>
             <td>
               <textarea
-                name="ingredients"
+                name="preparation"
                 onChange={handleChange}
-                placeholder="ingredients"
+                placeholder="preparation"
               />
             </td>
             <td>
               <textarea
-                name="preparation"
+                name="ingredients"
                 onChange={handleChange}
-                placeholder="preparation"
+                placeholder="ingredients"
               />
             </td>
             <td>
